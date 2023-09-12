@@ -28,11 +28,15 @@ module.exports = {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Movie shop",
+      title: "The Movie Maven",
       flename: "index.html",
       template: "src/template.html",
     }),

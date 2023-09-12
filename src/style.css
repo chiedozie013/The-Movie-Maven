@@ -1,3 +1,48 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:wght@400;500;600;700&famliy=Crete+Round&family=Montserrat&family=Open+Sans:wght@400;500;600;700&family=Oswald&family=Poppins:wght@400;500;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
 body {
-  background-color: aqua;
+  font-family: "inter", sans-serif;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.nav-header,
+.footer {
+  background-color: #09554e;
+  padding: 0 10%;
+  text-align: center;
+}
+.nav-list,
+.nav-title,
+.nav-bar {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 24px;
+  color: #fff;
+}
+#logo {
+  width: 50px;
+
+  padding-top: 10px;
+}
+
+.nav-bar {
+  justify-content: space-between;
+}
+.nav-list a {
+  color: #fff;
 }
