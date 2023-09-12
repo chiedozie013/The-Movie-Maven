@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Inter:wght@400;500;600;700&famliy=Crete+Round&family=Montserrat&family=Open+Sans:wght@400;500;600;700&family=Oswald&family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crete+Round&family=Open+Sans:ital,wght@0,500;1,500&display=swap");
 
 *,
 *::before,
@@ -11,13 +11,18 @@
 }
 
 body {
-  font-family: "inter", sans-serif;
+  font-family: "Crete Round", serif;
   font-weight: 600;
   color: #ffffff;
 }
 
 html {
   scroll-behavior: smooth;
+}
+.nav-header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 .nav-header,
 .footer {
@@ -45,4 +50,93 @@ html {
 }
 .nav-list a {
   color: #fff;
+  font-size: 20px;
+}
+.nav-list a:hover {
+  color: #75c2ba;
+}
+.movie-name {
+  color: #000000;
+}
+.movie-container {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 32px;
+  padding-top: 100px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid;
+  border-radius: 10px;
+  min-height: 100px;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.02);
+  z-index: 9999;
+}
+
+.movie-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.movie-name {
+  font-size: 20px;
+  justify-content: flex-start;
+}
+.like-btn {
+  display: flex;
+  gap: 10px;
+}
+.likesCount {
+  color: #000000;
+  font-size: 20px;
+}
+
+.like {
+  font-size: 20px;
+  background-color: #ffffff;
+  border: none;
+  font-weight: 800;
+  color: #09554e;
+  cursor: pointer;
+}
+.card-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.comments-button {
+  padding: 10px 45px;
+  border-radius: 10px;
+  background-color: #09554e;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+}
+
+.comments-button:hover {
+  background-color: #ffffff;
+  color: #09554e;
+  border: 2px solid #09554e;
+  font-weight: 600;
+}
+
+.footer {
+  padding: 10px 0;
+}
+@media screen and (max-width: 1000px) {
+  .movie-name,
+  .likesCount {
+    font-size: 20px;
+  }
 }
