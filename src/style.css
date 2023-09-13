@@ -157,7 +157,7 @@ html {
   overflow-y: auto;
 }
 
-/* .popup-container {
+.popup-container {
   position: absolute;
   top: 0;
   margin: 30px;
@@ -168,7 +168,7 @@ html {
   flex-direction: column;
   background-color: #fafefe;
   color: #09554e;
-} */
+}
 
 .hide {
   display: none;
