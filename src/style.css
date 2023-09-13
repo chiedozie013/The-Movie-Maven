@@ -39,11 +39,11 @@ html {
   font-size: 24px;
   color: #fff;
 }
-/* #logo {
+#logo {
   width: 50px;
 
   padding-top: 10px;
-} */
+}
 
 .nav-bar {
   justify-content: space-between;
