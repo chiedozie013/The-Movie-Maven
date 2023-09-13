@@ -1011,17 +1011,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const movies = 'https://api.tvmaze.com/shows';
-const popUpSection = document.querySelector('.popup-section');
+const movies = "https://api.tvmaze.com/shows";
+const popUpSection = document.querySelector(".popup-section");
 
 const popUp = async () => {
   const res = await fetch(movies);
   const data = await res.json();
 
-  const commentBtn = document.querySelectorAll('.comments-button');
+  const commentBtn = document.querySelectorAll(".comments-button");
 
   commentBtn.forEach((btn, i) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener("click", () => {
       popUpSection.innerHTML = `
   <div class="overlay">
     <div class="popup-container" id = ${data[i].id}>
@@ -1064,30 +1064,31 @@ const popUp = async () => {
 };
 
 const closeBtn = () => {
-  document.addEventListener('click', (e) => {
-    const target = e.target.closest('.close-btn');
+  document.addEventListener("click", (e) => {
+    const target = e.target.closest(".close-btn");
     const section = e.target.parentElement.parentElement;
     if (!target) return;
-    section.classList.add('hide');
+    section.classList.add("hide");
   });
 };
 
 const displayComment = (comment) => {
-  const commentContainer = document.querySelector('.comments-list');
+  const commentContainer = document.querySelector(".comments-list");
   if (!comment.error) {
     commentContainer.innerHTML = comment.map(
-      (item) => `<li> ${item.creation_date}: ${item.username}: ${item.comment} </li>`,
+      (item) =>
+        `<li> ${item.creation_date}: ${item.username}: ${item.comment} </li>`
     );
   }
-  const allComments = document.querySelectorAll('.comments-list li');
-  const commentCount = document.querySelector('.comment-count');
+  const allComments = document.querySelectorAll(".comments-list li");
+  const commentCount = document.querySelector(".comment-count");
   commentCount.innerHTML = (0,_counter_js__WEBPACK_IMPORTED_MODULE_1__["default"])(allComments);
 };
 
 const submitComment = () => {
-  document.addEventListener('submit', async (e) => {
+  document.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const target = e.target.closest('.form');
+    const target = e.target.closest(".form");
     const targetId = Number(e.target.parentElement.id);
     if (!target) return;
     await (0,_commentInvolvement_js__WEBPACK_IMPORTED_MODULE_0__.postComments)(targetId);
@@ -1097,9 +1098,9 @@ const submitComment = () => {
   });
 };
 
-const cardContainer = document.querySelector('.movie-container');
-cardContainer.addEventListener('click', async (e) => {
-  if (e.target.className === 'comments-button') {
+const cardContainer = document.querySelector(".movie-container");
+cardContainer.addEventListener("click", async (e) => {
+  if (e.target.className === "comments-button") {
     const comment = await (0,_commentInvolvement_js__WEBPACK_IMPORTED_MODULE_0__.getComments)(Number(e.target.id));
     displayComment(comment);
   }
