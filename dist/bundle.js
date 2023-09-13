@@ -41,6 +41,11 @@ body {
 html {
   scroll-behavior: smooth;
 }
+.nav-header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
 .nav-header,
 .footer {
   background-color: #09554e;
@@ -69,14 +74,19 @@ html {
   color: #fff;
   font-size: 20px;
 }
+.nav-list a:hover {
+  color: #75c2ba;
+}
 .movie-name {
   color: #000000;
 }
 .movie-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  padding: 0 32px;
+  padding: 32px;
+  padding-top: 100px;
 }
 .card {
   display: flex;
@@ -86,11 +96,82 @@ html {
   border-radius: 10px;
   min-height: 100px;
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.02);
+  z-index: 9999;
+}
+
+.movie-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
 }
 .movie-name {
   font-size: 20px;
+  justify-content: flex-start;
 }
-`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAEA;;;EAGE,SAAS;EACT,UAAU;EACV,gBAAgB;EAChB,sBAAsB;EACtB,qBAAqB;AACvB;;AAEA;EACE,iCAAiC;EACjC,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,uBAAuB;AACzB;AACA;;EAEE,yBAAyB;EACzB,cAAc;EACd,kBAAkB;AACpB;AACA;;;EAGE,aAAa;EACb,SAAS;EACT,mBAAmB;EACnB,eAAe;EACf,WAAW;AACb;AACA;EACE,WAAW;;EAEX,iBAAiB;AACnB;;AAEA;EACE,8BAA8B;AAChC;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,cAAc;AAChB;AACA;EACE,aAAa;EACb,kCAAkC;EAClC,SAAS;EACT,eAAe;AACjB;AACA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,iBAAiB;EACjB,mBAAmB;EACnB,iBAAiB;EACjB,8CAA8C;AAChD;AACA;EACE,eAAe;AACjB","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Crete+Round&family=Open+Sans:ital,wght@0,500;1,500&display=swap\");\r\n\r\n*,\r\n*::before,\r\n*::after {\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  box-sizing: border-box;\r\n  text-decoration: none;\r\n}\r\n\r\nbody {\r\n  font-family: \"Crete Round\", serif;\r\n  font-weight: 600;\r\n  color: #ffffff;\r\n}\r\n\r\nhtml {\r\n  scroll-behavior: smooth;\r\n}\r\n.nav-header,\r\n.footer {\r\n  background-color: #09554e;\r\n  padding: 0 10%;\r\n  text-align: center;\r\n}\r\n.nav-list,\r\n.nav-title,\r\n.nav-bar {\r\n  display: flex;\r\n  gap: 20px;\r\n  align-items: center;\r\n  font-size: 24px;\r\n  color: #fff;\r\n}\r\n#logo {\r\n  width: 50px;\r\n\r\n  padding-top: 10px;\r\n}\r\n\r\n.nav-bar {\r\n  justify-content: space-between;\r\n}\r\n.nav-list a {\r\n  color: #fff;\r\n  font-size: 20px;\r\n}\r\n.movie-name {\r\n  color: #000000;\r\n}\r\n.movie-container {\r\n  display: grid;\r\n  grid-template-columns: 1fr 1fr 1fr;\r\n  gap: 30px;\r\n  padding: 0 32px;\r\n}\r\n.card {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 20px;\r\n  border: 1px solid;\r\n  border-radius: 10px;\r\n  min-height: 100px;\r\n  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.8);\r\n}\r\n.movie-name {\r\n  font-size: 20px;\r\n}\r\n"],"sourceRoot":""}]);
+.like-btn {
+  display: flex;
+  gap: 10px;
+}
+.likesCount {
+  color: #000000;
+  font-size: 20px;
+}
+
+.like {
+  font-size: 20px;
+  background-color: #ffffff;
+  border: none;
+  font-weight: 800;
+  color: #09554e;
+  cursor: pointer;
+}
+.card-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.comments-button {
+  padding: 10px 45px;
+  border-radius: 10px;
+  background-color: #09554e;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+}
+
+.comments-button:hover {
+  background-color: #ffffff;
+  color: #09554e;
+  border: 2px solid #09554e;
+  font-weight: 600;
+}
+
+.footer {
+  padding: 10px 0;
+}
+@media screen and (max-width: 1000px) {
+  .movie-name,
+  .likesCount {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .movie-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .card:hover {
+    display: none;
+  }
+}
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAEA;;;EAGE,SAAS;EACT,UAAU;EACV,gBAAgB;EAChB,sBAAsB;EACtB,qBAAqB;AACvB;;AAEA;EACE,iCAAiC;EACjC,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,uBAAuB;AACzB;AACA;EACE,eAAe;EACf,WAAW;EACX,UAAU;AACZ;AACA;;EAEE,yBAAyB;EACzB,cAAc;EACd,kBAAkB;AACpB;AACA;;;EAGE,aAAa;EACb,SAAS;EACT,mBAAmB;EACnB,eAAe;EACf,WAAW;AACb;AACA;EACE,WAAW;;EAEX,iBAAiB;AACnB;;AAEA;EACE,8BAA8B;AAChC;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,cAAc;AAChB;AACA;EACE,cAAc;AAChB;AACA;EACE,aAAa;;EAEb,2DAA2D;EAC3D,SAAS;EACT,aAAa;EACb,kBAAkB;AACpB;AACA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,iBAAiB;EACjB,mBAAmB;EACnB,iBAAiB;EACjB,8CAA8C;EAC9C,+BAA+B;AACjC;AACA;EACE,sBAAsB;EACtB,aAAa;AACf;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,eAAe;AACjB;AACA;EACE,eAAe;EACf,2BAA2B;AAC7B;AACA;EACE,aAAa;EACb,SAAS;AACX;AACA;EACE,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,eAAe;EACf,yBAAyB;EACzB,YAAY;EACZ,gBAAgB;EAChB,cAAc;EACd,eAAe;AACjB;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,yBAAyB;EACzB,cAAc;EACd,eAAe;EACf,gBAAgB;EAChB,YAAY;EACZ,eAAe;AACjB;;AAEA;EACE,yBAAyB;EACzB,cAAc;EACd,yBAAyB;EACzB,gBAAgB;AAClB;;AAEA;EACE,eAAe;AACjB;AACA;EACE;;IAEE,eAAe;EACjB;AACF;;AAEA;EACE;IACE,2DAA2D;EAC7D;EACA;IACE,aAAa;EACf;AACF","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Crete+Round&family=Open+Sans:ital,wght@0,500;1,500&display=swap\");\r\n\r\n*,\r\n*::before,\r\n*::after {\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  box-sizing: border-box;\r\n  text-decoration: none;\r\n}\r\n\r\nbody {\r\n  font-family: \"Crete Round\", serif;\r\n  font-weight: 600;\r\n  color: #ffffff;\r\n}\r\n\r\nhtml {\r\n  scroll-behavior: smooth;\r\n}\r\n.nav-header {\r\n  position: fixed;\r\n  width: 100%;\r\n  z-index: 1;\r\n}\r\n.nav-header,\r\n.footer {\r\n  background-color: #09554e;\r\n  padding: 0 10%;\r\n  text-align: center;\r\n}\r\n.nav-list,\r\n.nav-title,\r\n.nav-bar {\r\n  display: flex;\r\n  gap: 20px;\r\n  align-items: center;\r\n  font-size: 24px;\r\n  color: #fff;\r\n}\r\n#logo {\r\n  width: 50px;\r\n\r\n  padding-top: 10px;\r\n}\r\n\r\n.nav-bar {\r\n  justify-content: space-between;\r\n}\r\n.nav-list a {\r\n  color: #fff;\r\n  font-size: 20px;\r\n}\r\n.nav-list a:hover {\r\n  color: #75c2ba;\r\n}\r\n.movie-name {\r\n  color: #000000;\r\n}\r\n.movie-container {\r\n  display: grid;\r\n\r\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\r\n  gap: 30px;\r\n  padding: 32px;\r\n  padding-top: 100px;\r\n}\r\n.card {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 20px;\r\n  border: 1px solid;\r\n  border-radius: 10px;\r\n  min-height: 100px;\r\n  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.8);\r\n  transition: transform 0.3s ease;\r\n}\r\n.card:hover {\r\n  transform: scale(1.02);\r\n  z-index: 9999;\r\n}\r\n\r\n.movie-title {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: 0 10px;\r\n}\r\n.movie-name {\r\n  font-size: 20px;\r\n  justify-content: flex-start;\r\n}\r\n.like-btn {\r\n  display: flex;\r\n  gap: 10px;\r\n}\r\n.likesCount {\r\n  color: #000000;\r\n  font-size: 20px;\r\n}\r\n\r\n.like {\r\n  font-size: 20px;\r\n  background-color: #ffffff;\r\n  border: none;\r\n  font-weight: 800;\r\n  color: #09554e;\r\n  cursor: pointer;\r\n}\r\n.card-buttons {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin-bottom: 15px;\r\n}\r\n\r\n.comments-button {\r\n  padding: 10px 45px;\r\n  border-radius: 10px;\r\n  background-color: #09554e;\r\n  color: #ffffff;\r\n  font-size: 20px;\r\n  font-weight: 400;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n\r\n.comments-button:hover {\r\n  background-color: #ffffff;\r\n  color: #09554e;\r\n  border: 2px solid #09554e;\r\n  font-weight: 600;\r\n}\r\n\r\n.footer {\r\n  padding: 10px 0;\r\n}\r\n@media screen and (max-width: 1000px) {\r\n  .movie-name,\r\n  .likesCount {\r\n    font-size: 20px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 700px) {\r\n  .movie-container {\r\n    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));\r\n  }\r\n  .card:hover {\r\n    display: none;\r\n  }\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -662,7 +743,13 @@ const getMovies = async (test) => {
     data.forEach((movie) => {
       const newMovie = `<div class="card" item_id="${movie.id}">
                 <img src=${movie.image.medium}>
-                <h2 class="movie-name">${movie.name}<button class="like"><i class="fa fa-heart-o" id=${movie.id}></button></i><span class="likesCount" id="likesCount-${movie.id}"></span></h2>
+                <div class="movie-title">
+                <h2 class="movie-name">${movie.name}</h2>                
+                <div class="like-btn">
+                <button class="like"><i class="fa fa-heart-o likes" id=${movie.id}></i></button>
+                <h2 class="likesCount" id="likesCount-${movie.id}"></h2>
+                </div>
+                </div>
                 <div class="card-buttons">
                 <button class="comments-button" id=${movie.id}>Comment</button>
                 </div>
