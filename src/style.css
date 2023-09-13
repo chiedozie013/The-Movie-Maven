@@ -174,12 +174,12 @@ html {
   display: none;
 }
 
-/* .close-btn {
+.close-btn {
   font-size: 40px;
   cursor: pointer;
   display: flex;
   align-self: end;
-} */
+}
 .popup-img {
   width: 50%;
 }
