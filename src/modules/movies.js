@@ -1,11 +1,11 @@
-import { postLikes, getLikesCount } from "./involvement.js";
+import { postLikes, getLikesCount } from './involvement.js';
 
-const movies = "https://api.tvmaze.com/shows";
+const movies = 'https://api.tvmaze.com/shows';
 
 const getMovies = async (test) => {
   try {
     const result = await fetch(movies);
-    let output = "";
+    let output = '';
     const data = await result.json();
     data.forEach((movie) => {
       const newMovie = `<div class="card" item_id="${movie.id}">
@@ -25,7 +25,7 @@ const getMovies = async (test) => {
       output += newMovie;
     });
 
-    const displayMovies = document.querySelector(".movie-container");
+    const displayMovies = document.querySelector('.movie-container');
     displayMovies.innerHTML = output;
     // passed in test above in order to be able to get length of all movies available
     test(data.length);
@@ -36,18 +36,18 @@ const getMovies = async (test) => {
       likesData.forEach((item) => {
         const likesCount = [`${item.likes}`];
         const likesCountElement = document.getElementById(
-          `likesCount-${item.item_id}`
+          `likesCount-${item.item_id}`,
         );
-        if (likesCountElement) likesCountElement.innerText = likesCount || "0";
+        if (likesCountElement) likesCountElement.innerText = likesCount || '0';
       });
     };
 
     updateLikesCount();
 
     // like button functionality
-    const likeBtn = document.querySelectorAll(".like");
+    const likeBtn = document.querySelectorAll('.like');
     likeBtn.forEach((button) => {
-      button.addEventListener("click", async (item) => {
+      button.addEventListener('click', async (item) => {
         const { id } = item.target; // get the ID of the clicked element
         postLikes(id); // pass the ID to postLikes
         item.preventDefault();
@@ -55,7 +55,7 @@ const getMovies = async (test) => {
       updateLikesCount();
     });
   } catch (error) {
-    const displayMovies = document.querySelector(".movie-container");
+    const displayMovies = document.querySelector('.movie-container');
     displayMovies.innerText = error;
   }
 };
