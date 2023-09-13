@@ -19,11 +19,11 @@ body {
 html {
   scroll-behavior: smooth;
 }
-/* .nav-header {
+.nav-header {
   position: fixed;
   width: 100%;
   z-index: 1;
-} */
+}
 .nav-header,
 .footer {
   background-color: #09554e;
