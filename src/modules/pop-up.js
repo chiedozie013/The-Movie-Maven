@@ -6,8 +6,8 @@ const movies = "https://api.tvmaze.com/shows";
 const popUpSection = document.querySelector(".popup-section");
 
 const popUp = async () => {
-  //   const res = await fetch(movies);
-  //   const data = await res.json();
+    const res = await fetch(movies);
+    const data = await res.json();
 
   const commentBtn = document.querySelectorAll(".comments-button");
 
