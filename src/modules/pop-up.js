@@ -76,18 +76,18 @@ const displayComment = (comment) => {
   commentCount.innerHTML = counter(allComments);
 };
 
-// const submitComment = () => {
-//   document.addEventListener("submit", async (e) => {
-//     e.preventDefault();
-//     const target = e.target.closest(".form");
-//     const targetId = Number(e.target.parentElement.id);
-//     if (!target) return;
-//     await postComments(targetId);
-//     const comment = await getComments(Number(targetId));
-//     displayComment(comment);
-//     target.reset();
-//   });
-// };
+const submitComment = () => {
+  document.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const target = e.target.closest(".form");
+    const targetId = Number(e.target.parentElement.id);
+    if (!target) return;
+    await postComments(targetId);
+    const comment = await getComments(Number(targetId));
+    displayComment(comment);
+    target.reset();
+  });
+};
 
 const cardContainer = document.querySelector(".movie-container");
 cardContainer.addEventListener("click", async (e) => {
