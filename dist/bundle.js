@@ -35,23 +35,26 @@ ___CSS_LOADER_EXPORT___.push([module.id, `*,
 body {
   font-family: "Crete Round", serif;
   font-weight: 600;
-  color: #ffffff;
+  color: #fff;
 }
 
 html {
   scroll-behavior: smooth;
 }
+
 .nav-header {
   position: fixed;
   width: 100%;
   z-index: 1;
 }
+
 .nav-header,
 .footer {
   background-color: #09554e;
   padding: 0 10%;
   text-align: center;
 }
+
 .nav-list,
 .nav-title,
 .nav-bar {
@@ -61,33 +64,33 @@ html {
   font-size: 24px;
   color: #fff;
 }
+
 #logo {
   width: 50px;
-
   padding-top: 10px;
 }
 
 .nav-bar {
   justify-content: space-between;
 }
+
 .nav-list a {
   color: #fff;
   font-size: 20px;
 }
+
 .nav-list a:hover {
   color: #75c2ba;
 }
-.movie-name {
-  color: #000000;
-}
+
 .movie-container {
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   padding: 32px;
   padding-top: 100px;
 }
+
 .card {
   display: flex;
   flex-direction: column;
@@ -98,37 +101,38 @@ html {
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.8);
   transition: transform 0.3s ease;
 }
-.card:hover {
-  transform: scale(1.02);
-  z-index: 9999;
-}
 
 .movie-title {
   display: flex;
   justify-content: space-between;
   padding: 0 10px;
 }
+
 .movie-name {
   font-size: 20px;
   justify-content: flex-start;
+  color: #000;
 }
+
 .like-btn {
   display: flex;
   gap: 10px;
 }
+
 .likesCount {
-  color: #000000;
+  color: #000;
   font-size: 20px;
 }
 
 .like {
   font-size: 20px;
-  background-color: #ffffff;
+  background-color: #fff;
   border: none;
   font-weight: 800;
   color: #09554e;
   cursor: pointer;
 }
+
 .card-buttons {
   display: flex;
   justify-content: center;
@@ -139,15 +143,16 @@ html {
   padding: 10px 45px;
   border-radius: 10px;
   background-color: #09554e;
-  color: #ffffff;
+  color: #fff;
   font-size: 20px;
   font-weight: 400;
   border: none;
   cursor: pointer;
 }
 
-.comments-button:hover {
-  background-color: #ffffff;
+.comments-button:hover,
+.popup-btn:hover {
+  background-color: #fff;
   color: #09554e;
   border: 2px solid #09554e;
   font-weight: 600;
@@ -156,22 +161,146 @@ html {
 .footer {
   padding: 10px 0;
 }
+
+/* for pop up */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.popup-container {
+  position: absolute;
+  top: 0;
+  margin: 30px;
+  padding: 20px 30px 20px;
+  z-index: 10;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafefe;
+  color: #09554e;
+}
+
+.hide {
+  display: none;
+}
+
+.close-btn {
+  font-size: 40px;
+  cursor: pointer;
+  display: flex;
+  align-self: end;
+}
+.popup-img {
+  width: 50%;
+}
+.popup-img-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  gap: 10px;
+}
+
+.popup-title {
+  text-align: center;
+  padding: 10px;
+}
+
+.popup-info {
+  padding: 10px;
+  text-align: center;
+}
+
+.popup-description {
+  padding: 10px;
+  text-align: justify;
+}
+
+.popup-comments {
+  border: 2px solid #09554e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#popup-name {
+  height: 35px;
+  border: 2px solid #09554e;
+  padding: 0 20px;
+  font-weight: 800;
+}
+
+#popup-insight {
+  height: 140px;
+  border: 2px solid #09554e;
+  padding: 10px 20px;
+  font-weight: 800;
+}
+
+.popup-btn {
+  cursor: pointer;
+  height: 40px;
+  font-size: 20px;
+  background-color: #09554e;
+  color: #fff;
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 1000px) {
   .movie-name,
   .likesCount {
     font-size: 20px;
   }
+  .movie-title {
+    padding: 0 30px;
+  }
+}
+@media screen and (min-width: 700px) {
+  .card:hover {
+    transform: scale(1.02);
+    z-index: 9999;
+  }
 }
 
 @media screen and (max-width: 700px) {
+  .nav-header {
+    padding: 0 7%;
+  }
+  .nav-title p {
+    display: none;
+  }
+  .nav-list {
+    gap: 5px;
+  }
+
   .movie-container {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
-  .card:hover {
-    display: none;
+
+  .popup-container {
+    width: 90%;
+    padding: 10px;
   }
 }
-`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAEA;;;EAGE,SAAS;EACT,UAAU;EACV,gBAAgB;EAChB,sBAAsB;EACtB,qBAAqB;AACvB;;AAEA;EACE,iCAAiC;EACjC,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,uBAAuB;AACzB;AACA;EACE,eAAe;EACf,WAAW;EACX,UAAU;AACZ;AACA;;EAEE,yBAAyB;EACzB,cAAc;EACd,kBAAkB;AACpB;AACA;;;EAGE,aAAa;EACb,SAAS;EACT,mBAAmB;EACnB,eAAe;EACf,WAAW;AACb;AACA;EACE,WAAW;;EAEX,iBAAiB;AACnB;;AAEA;EACE,8BAA8B;AAChC;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,cAAc;AAChB;AACA;EACE,cAAc;AAChB;AACA;EACE,aAAa;;EAEb,2DAA2D;EAC3D,SAAS;EACT,aAAa;EACb,kBAAkB;AACpB;AACA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,iBAAiB;EACjB,mBAAmB;EACnB,iBAAiB;EACjB,8CAA8C;EAC9C,+BAA+B;AACjC;AACA;EACE,sBAAsB;EACtB,aAAa;AACf;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,eAAe;AACjB;AACA;EACE,eAAe;EACf,2BAA2B;AAC7B;AACA;EACE,aAAa;EACb,SAAS;AACX;AACA;EACE,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,eAAe;EACf,yBAAyB;EACzB,YAAY;EACZ,gBAAgB;EAChB,cAAc;EACd,eAAe;AACjB;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,yBAAyB;EACzB,cAAc;EACd,eAAe;EACf,gBAAgB;EAChB,YAAY;EACZ,eAAe;AACjB;;AAEA;EACE,yBAAyB;EACzB,cAAc;EACd,yBAAyB;EACzB,gBAAgB;AAClB;;AAEA;EACE,eAAe;AACjB;AACA;EACE;;IAEE,eAAe;EACjB;AACF;;AAEA;EACE;IACE,2DAA2D;EAC7D;EACA;IACE,aAAa;EACf;AACF","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Crete+Round&family=Open+Sans:ital,wght@0,500;1,500&display=swap\");\r\n\r\n*,\r\n*::before,\r\n*::after {\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  box-sizing: border-box;\r\n  text-decoration: none;\r\n}\r\n\r\nbody {\r\n  font-family: \"Crete Round\", serif;\r\n  font-weight: 600;\r\n  color: #ffffff;\r\n}\r\n\r\nhtml {\r\n  scroll-behavior: smooth;\r\n}\r\n.nav-header {\r\n  position: fixed;\r\n  width: 100%;\r\n  z-index: 1;\r\n}\r\n.nav-header,\r\n.footer {\r\n  background-color: #09554e;\r\n  padding: 0 10%;\r\n  text-align: center;\r\n}\r\n.nav-list,\r\n.nav-title,\r\n.nav-bar {\r\n  display: flex;\r\n  gap: 20px;\r\n  align-items: center;\r\n  font-size: 24px;\r\n  color: #fff;\r\n}\r\n#logo {\r\n  width: 50px;\r\n\r\n  padding-top: 10px;\r\n}\r\n\r\n.nav-bar {\r\n  justify-content: space-between;\r\n}\r\n.nav-list a {\r\n  color: #fff;\r\n  font-size: 20px;\r\n}\r\n.nav-list a:hover {\r\n  color: #75c2ba;\r\n}\r\n.movie-name {\r\n  color: #000000;\r\n}\r\n.movie-container {\r\n  display: grid;\r\n\r\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\r\n  gap: 30px;\r\n  padding: 32px;\r\n  padding-top: 100px;\r\n}\r\n.card {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 20px;\r\n  border: 1px solid;\r\n  border-radius: 10px;\r\n  min-height: 100px;\r\n  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.8);\r\n  transition: transform 0.3s ease;\r\n}\r\n.card:hover {\r\n  transform: scale(1.02);\r\n  z-index: 9999;\r\n}\r\n\r\n.movie-title {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: 0 10px;\r\n}\r\n.movie-name {\r\n  font-size: 20px;\r\n  justify-content: flex-start;\r\n}\r\n.like-btn {\r\n  display: flex;\r\n  gap: 10px;\r\n}\r\n.likesCount {\r\n  color: #000000;\r\n  font-size: 20px;\r\n}\r\n\r\n.like {\r\n  font-size: 20px;\r\n  background-color: #ffffff;\r\n  border: none;\r\n  font-weight: 800;\r\n  color: #09554e;\r\n  cursor: pointer;\r\n}\r\n.card-buttons {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin-bottom: 15px;\r\n}\r\n\r\n.comments-button {\r\n  padding: 10px 45px;\r\n  border-radius: 10px;\r\n  background-color: #09554e;\r\n  color: #ffffff;\r\n  font-size: 20px;\r\n  font-weight: 400;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n\r\n.comments-button:hover {\r\n  background-color: #ffffff;\r\n  color: #09554e;\r\n  border: 2px solid #09554e;\r\n  font-weight: 600;\r\n}\r\n\r\n.footer {\r\n  padding: 10px 0;\r\n}\r\n@media screen and (max-width: 1000px) {\r\n  .movie-name,\r\n  .likesCount {\r\n    font-size: 20px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 700px) {\r\n  .movie-container {\r\n    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));\r\n  }\r\n  .card:hover {\r\n    display: none;\r\n  }\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAEA;;;EAGE,SAAS;EACT,UAAU;EACV,gBAAgB;EAChB,sBAAsB;EACtB,qBAAqB;AACvB;;AAEA;EACE,iCAAiC;EACjC,gBAAgB;EAChB,WAAW;AACb;;AAEA;EACE,uBAAuB;AACzB;;AAEA;EACE,eAAe;EACf,WAAW;EACX,UAAU;AACZ;;AAEA;;EAEE,yBAAyB;EACzB,cAAc;EACd,kBAAkB;AACpB;;AAEA;;;EAGE,aAAa;EACb,SAAS;EACT,mBAAmB;EACnB,eAAe;EACf,WAAW;AACb;;AAEA;EACE,WAAW;EACX,iBAAiB;AACnB;;AAEA;EACE,8BAA8B;AAChC;;AAEA;EACE,WAAW;EACX,eAAe;AACjB;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,aAAa;EACb,2DAA2D;EAC3D,SAAS;EACT,aAAa;EACb,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,iBAAiB;EACjB,mBAAmB;EACnB,iBAAiB;EACjB,8CAA8C;EAC9C,+BAA+B;AACjC;;AAEA;EACE,aAAa;EACb,8BAA8B;EAC9B,eAAe;AACjB;;AAEA;EACE,eAAe;EACf,2BAA2B;EAC3B,WAAW;AACb;;AAEA;EACE,aAAa;EACb,SAAS;AACX;;AAEA;EACE,WAAW;EACX,eAAe;AACjB;;AAEA;EACE,eAAe;EACf,sBAAsB;EACtB,YAAY;EACZ,gBAAgB;EAChB,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,yBAAyB;EACzB,WAAW;EACX,eAAe;EACf,gBAAgB;EAChB,YAAY;EACZ,eAAe;AACjB;;AAEA;;EAEE,sBAAsB;EACtB,cAAc;EACd,yBAAyB;EACzB,gBAAgB;AAClB;;AAEA;EACE,eAAe;AACjB;;AAEA,eAAe;;AAEf;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,WAAW;EACX,aAAa;EACb,oCAAoC;EACpC,0BAA0B;EAC1B,UAAU;EACV,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,MAAM;EACN,YAAY;EACZ,uBAAuB;EACvB,WAAW;EACX,UAAU;EACV,aAAa;EACb,sBAAsB;EACtB,yBAAyB;EACzB,cAAc;AAChB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,eAAe;EACf,eAAe;EACf,aAAa;EACb,eAAe;AACjB;AACA;EACE,UAAU;AACZ;AACA;EACE,aAAa;EACb,uBAAuB;EACvB,YAAY;AACd;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,YAAY;EACZ,SAAS;AACX;;AAEA;EACE,kBAAkB;EAClB,aAAa;AACf;;AAEA;EACE,aAAa;EACb,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,yBAAyB;EACzB,aAAa;EACb,sBAAsB;EACtB,uBAAuB;EACvB,mBAAmB;EACnB,kBAAkB;AACpB;AACA;EACE,YAAY;EACZ,yBAAyB;EACzB,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,yBAAyB;EACzB,kBAAkB;EAClB,gBAAgB;AAClB;;AAEA;EACE,eAAe;EACf,YAAY;EACZ,eAAe;EACf,yBAAyB;EACzB,WAAW;EACX,mBAAmB;AACrB;;AAEA;EACE;;IAEE,eAAe;EACjB;EACA;IACE,eAAe;EACjB;AACF;AACA;EACE;IACE,sBAAsB;IACtB,aAAa;EACf;AACF;;AAEA;EACE;IACE,aAAa;EACf;EACA;IACE,aAAa;EACf;EACA;IACE,QAAQ;EACV;;EAEA;IACE,2DAA2D;EAC7D;;EAEA;IACE,UAAU;IACV,aAAa;EACf;AACF","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Crete+Round&family=Open+Sans:ital,wght@0,500;1,500&display=swap\");\r\n\r\n*,\r\n*::before,\r\n*::after {\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  box-sizing: border-box;\r\n  text-decoration: none;\r\n}\r\n\r\nbody {\r\n  font-family: \"Crete Round\", serif;\r\n  font-weight: 600;\r\n  color: #fff;\r\n}\r\n\r\nhtml {\r\n  scroll-behavior: smooth;\r\n}\r\n\r\n.nav-header {\r\n  position: fixed;\r\n  width: 100%;\r\n  z-index: 1;\r\n}\r\n\r\n.nav-header,\r\n.footer {\r\n  background-color: #09554e;\r\n  padding: 0 10%;\r\n  text-align: center;\r\n}\r\n\r\n.nav-list,\r\n.nav-title,\r\n.nav-bar {\r\n  display: flex;\r\n  gap: 20px;\r\n  align-items: center;\r\n  font-size: 24px;\r\n  color: #fff;\r\n}\r\n\r\n#logo {\r\n  width: 50px;\r\n  padding-top: 10px;\r\n}\r\n\r\n.nav-bar {\r\n  justify-content: space-between;\r\n}\r\n\r\n.nav-list a {\r\n  color: #fff;\r\n  font-size: 20px;\r\n}\r\n\r\n.nav-list a:hover {\r\n  color: #75c2ba;\r\n}\r\n\r\n.movie-container {\r\n  display: grid;\r\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\r\n  gap: 30px;\r\n  padding: 32px;\r\n  padding-top: 100px;\r\n}\r\n\r\n.card {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 20px;\r\n  border: 1px solid;\r\n  border-radius: 10px;\r\n  min-height: 100px;\r\n  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.8);\r\n  transition: transform 0.3s ease;\r\n}\r\n\r\n.movie-title {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  padding: 0 10px;\r\n}\r\n\r\n.movie-name {\r\n  font-size: 20px;\r\n  justify-content: flex-start;\r\n  color: #000;\r\n}\r\n\r\n.like-btn {\r\n  display: flex;\r\n  gap: 10px;\r\n}\r\n\r\n.likesCount {\r\n  color: #000;\r\n  font-size: 20px;\r\n}\r\n\r\n.like {\r\n  font-size: 20px;\r\n  background-color: #fff;\r\n  border: none;\r\n  font-weight: 800;\r\n  color: #09554e;\r\n  cursor: pointer;\r\n}\r\n\r\n.card-buttons {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin-bottom: 15px;\r\n}\r\n\r\n.comments-button {\r\n  padding: 10px 45px;\r\n  border-radius: 10px;\r\n  background-color: #09554e;\r\n  color: #fff;\r\n  font-size: 20px;\r\n  font-weight: 400;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n\r\n.comments-button:hover,\r\n.popup-btn:hover {\r\n  background-color: #fff;\r\n  color: #09554e;\r\n  border: 2px solid #09554e;\r\n  font-weight: 600;\r\n}\r\n\r\n.footer {\r\n  padding: 10px 0;\r\n}\r\n\r\n/* for pop up */\r\n\r\n.overlay {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 100vh;\r\n  background-color: rgba(0, 0, 0, 0.5);\r\n  backdrop-filter: blur(3px);\r\n  z-index: 5;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  overflow-y: auto;\r\n}\r\n\r\n.popup-container {\r\n  position: absolute;\r\n  top: 0;\r\n  margin: 30px;\r\n  padding: 20px 30px 20px;\r\n  z-index: 10;\r\n  width: 50%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  background-color: #fafefe;\r\n  color: #09554e;\r\n}\r\n\r\n.hide {\r\n  display: none;\r\n}\r\n\r\n.close-btn {\r\n  font-size: 40px;\r\n  cursor: pointer;\r\n  display: flex;\r\n  align-self: end;\r\n}\r\n.popup-img {\r\n  width: 50%;\r\n}\r\n.popup-img-container {\r\n  display: flex;\r\n  justify-content: center;\r\n  margin: 10px;\r\n}\r\n\r\n.form {\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin: 10px;\r\n  gap: 10px;\r\n}\r\n\r\n.popup-title {\r\n  text-align: center;\r\n  padding: 10px;\r\n}\r\n\r\n.popup-info {\r\n  padding: 10px;\r\n  text-align: center;\r\n}\r\n\r\n.popup-description {\r\n  padding: 10px;\r\n  text-align: justify;\r\n}\r\n\r\n.popup-comments {\r\n  border: 2px solid #09554e;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n  text-align: center;\r\n}\r\n#popup-name {\r\n  height: 35px;\r\n  border: 2px solid #09554e;\r\n  padding: 0 20px;\r\n  font-weight: 800;\r\n}\r\n\r\n#popup-insight {\r\n  height: 140px;\r\n  border: 2px solid #09554e;\r\n  padding: 10px 20px;\r\n  font-weight: 800;\r\n}\r\n\r\n.popup-btn {\r\n  cursor: pointer;\r\n  height: 40px;\r\n  font-size: 20px;\r\n  background-color: #09554e;\r\n  color: #fff;\r\n  border-radius: 10px;\r\n}\r\n\r\n@media screen and (max-width: 1000px) {\r\n  .movie-name,\r\n  .likesCount {\r\n    font-size: 20px;\r\n  }\r\n  .movie-title {\r\n    padding: 0 30px;\r\n  }\r\n}\r\n@media screen and (min-width: 700px) {\r\n  .card:hover {\r\n    transform: scale(1.02);\r\n    z-index: 9999;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 700px) {\r\n  .nav-header {\r\n    padding: 0 7%;\r\n  }\r\n  .nav-title p {\r\n    display: none;\r\n  }\r\n  .nav-list {\r\n    gap: 5px;\r\n  }\r\n\r\n  .movie-container {\r\n    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));\r\n  }\r\n\r\n  .popup-container {\r\n    width: 90%;\r\n    padding: 10px;\r\n  }\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -618,6 +747,67 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/modules/commentInvolvement.js":
+/*!*******************************************!*\
+  !*** ./src/modules/commentInvolvement.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getComments: () => (/* binding */ getComments),
+/* harmony export */   postComments: () => (/* binding */ postComments)
+/* harmony export */ });
+const commentApi =
+  "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BHkrUTs0Q4TVtczjuly5/comments";
+
+const postComments = async (id) => {
+  const username = document.getElementById("popup-name").value;
+  const comment = document.getElementById("popup-insight").value;
+
+  const options = {
+    method: "POST",
+    body: JSON.stringify({
+      item_id: id,
+      username,
+      comment,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  await fetch(commentApi, options).then((res) => res.text());
+};
+
+const getComments = async (id) => {
+  const res = await fetch(`${commentApi}?item_id=${id}`);
+  const data = await res.json();
+  return data;
+};
+
+
+
+
+/***/ }),
+
+/***/ "./src/modules/counter.js":
+/*!********************************!*\
+  !*** ./src/modules/counter.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const counter = (item) => (item ? item.length : 0);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (counter);
+
+
+/***/ }),
+
 /***/ "./src/modules/header.js":
 /*!*******************************!*\
   !*** ./src/modules/header.js ***!
@@ -632,7 +822,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const header = () => {
-  const nav = document.querySelector(".nav-header");
+  const nav = document.querySelector('.nav-header');
   nav.innerHTML = `
     <div class="nav-bar">
     <div class="nav-title">
@@ -667,15 +857,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   postLikes: () => (/* binding */ postLikes)
 /* harmony export */ });
 /* eslint-disable no-unused-vars */
-const likesApi =
-  "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BHkrUTs0Q4TVtczjuly5/likes";
+const likesApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BHkrUTs0Q4TVtczjuly5/likes';
 
 const postLikes = async (id) => {
   const test = { item_id: id };
   const response = await fetch(likesApi, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(test),
   });
@@ -704,11 +893,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   movieCounter: () => (/* binding */ movieCounter)
 /* harmony export */ });
 const movieCounter = (count) => {
-  const counter = document.getElementById("counter");
-  count = document.querySelectorAll(".card").length;
+  const counter = document.getElementById('counter');
+  count = document.querySelectorAll('.card').length;
 
-  if (count === 0) count = "No movies";
-  if (count > 999) count = "999+";
+  if (count === 0) count = 'No movies';
+  if (count > 999) count = '999+';
 
   counter.innerText = count;
   return count;
@@ -794,6 +983,124 @@ const getMovies = async (test) => {
 };
 
 /* eslint-disable import/prefer-default-export */
+
+
+
+/***/ }),
+
+/***/ "./src/modules/pop-up.js":
+/*!*******************************!*\
+  !*** ./src/modules/pop-up.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   closeBtn: () => (/* binding */ closeBtn),
+/* harmony export */   popUp: () => (/* binding */ popUp),
+/* harmony export */   submitComment: () => (/* binding */ submitComment)
+/* harmony export */ });
+/* harmony import */ var _commentInvolvement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./commentInvolvement.js */ "./src/modules/commentInvolvement.js");
+/* harmony import */ var _counter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./counter.js */ "./src/modules/counter.js");
+// import { movies } from "./movies.js";
+
+
+
+const movies = "https://api.tvmaze.com/shows";
+const popUpSection = document.querySelector(".popup-section");
+
+const popUp = async () => {
+  const res = await fetch(movies);
+  const data = await res.json();
+
+  const commentBtn = document.querySelectorAll(".comments-button");
+
+  commentBtn.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      popUpSection.innerHTML = `
+  <div class="overlay">
+    <div class="popup-container" id = ${data[i].id}>
+     <span class="close-btn">&times;</span>
+       <div class="popup-img-container">
+          <img src=${data[i].image.medium} alt=${data[i].name} class="popup-img" id = ${data[i].id} />
+        </div>
+        <h3 class="popup-title">${data[i].name}</h3>
+        <div class="popup-info">
+          <p class="popup-genre"><strong>Genre:</strong> ${data[i].genres}</p>
+          <p class="popup-type"><strong>Type:</strong> ${data[i].type}</p>
+          <p class="popup-language"><strong>Language:</strong> ${data[i].language}</p>
+          <p class="popup-rating"><strong>Rating:</strong> ${data[i].rating.average}</p>
+          <p class="popup-premiered"><strong>Premiered:</strong> ${data[i].premiered}</p>
+        </div>
+        <div class="popup-description">
+          <p class="popup-summary">${data[i].summary}</p>
+       </div>
+        <div class="popup-comments">
+        <h3>Comments (<span class="comment-count"></span>) </h3>
+          <ul class="comments-list">
+          </ul>
+        </div>
+        <form class="form">
+          <input
+            type="text"
+            name="fname"
+            id="popup-name"
+            placeholder="Your name"
+            required
+          />
+        <textarea name="insights" cols="30" rows="5" id="popup-insight" placeholder="Your insights" required></textarea>
+        <button type= "submit" class="popup-btn" id = ${data[i].id}>Comment</button>
+        </form>
+    </div>
+  </div>
+    `;
+    });
+  });
+};
+
+const closeBtn = () => {
+  document.addEventListener("click", (e) => {
+    const target = e.target.closest(".close-btn");
+    const section = e.target.parentElement.parentElement;
+    if (!target) return;
+    section.classList.add("hide");
+  });
+};
+
+const displayComment = (comment) => {
+  const commentContainer = document.querySelector(".comments-list");
+  if (!comment.error) {
+    commentContainer.innerHTML = comment.map(
+      (item) =>
+        `<li> ${item.creation_date}: ${item.username}: ${item.comment} </li>`
+    );
+  }
+  const allComments = document.querySelectorAll(".comments-list li");
+  const commentCount = document.querySelector(".comment-count");
+  commentCount.innerHTML = (0,_counter_js__WEBPACK_IMPORTED_MODULE_1__["default"])(allComments);
+};
+
+const submitComment = () => {
+  document.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const target = e.target.closest(".form");
+    const targetId = Number(e.target.parentElement.id);
+    if (!target) return;
+    await (0,_commentInvolvement_js__WEBPACK_IMPORTED_MODULE_0__.postComments)(targetId);
+    const comment = await (0,_commentInvolvement_js__WEBPACK_IMPORTED_MODULE_0__.getComments)(Number(targetId));
+    displayComment(comment);
+    target.reset();
+  });
+};
+
+const cardContainer = document.querySelector(".movie-container");
+cardContainer.addEventListener("click", async (e) => {
+  if (e.target.className === "comments-button") {
+    const comment = await (0,_commentInvolvement_js__WEBPACK_IMPORTED_MODULE_0__.getComments)(Number(e.target.id));
+    displayComment(comment);
+  }
+});
+
 
 
 
@@ -929,6 +1236,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_movies_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/movies.js */ "./src/modules/movies.js");
 /* harmony import */ var _modules_movieCounter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/movieCounter.js */ "./src/modules/movieCounter.js");
 /* harmony import */ var _modules_involvement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/involvement.js */ "./src/modules/involvement.js");
+/* harmony import */ var _modules_pop_up_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/pop-up.js */ "./src/modules/pop-up.js");
 
 
 
@@ -937,6 +1245,9 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_modules_header__WEBPACK_IMPORTED_MODULE_1__["default"])();
 (0,_modules_movies_js__WEBPACK_IMPORTED_MODULE_2__.getMovies)(_modules_movieCounter_js__WEBPACK_IMPORTED_MODULE_3__.movieCounter, _modules_involvement_js__WEBPACK_IMPORTED_MODULE_4__.postLikes, _modules_involvement_js__WEBPACK_IMPORTED_MODULE_4__.getLikesCount);
+(0,_modules_pop_up_js__WEBPACK_IMPORTED_MODULE_5__.popUp)();
+(0,_modules_pop_up_js__WEBPACK_IMPORTED_MODULE_5__.closeBtn)();
+(0,_modules_pop_up_js__WEBPACK_IMPORTED_MODULE_5__.submitComment)();
 
 })();
 
