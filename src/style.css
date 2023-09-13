@@ -128,14 +128,6 @@ html {
   cursor: pointer;
 }
 
-.comments-button:hover,
-.popup-btn:hover {
-  background-color: #fff;
-  color: #09554e;
-  border: 2px solid #09554e;
-  font-weight: 600;
-}
-
 .footer {
   padding: 10px 0;
 }
@@ -157,7 +149,7 @@ html {
   overflow-y: auto;
 }
 
-/* .popup-container {
+.popup-container {
   position: absolute;
   top: 0;
   margin: 30px;
@@ -168,21 +160,23 @@ html {
   flex-direction: column;
   background-color: #fafefe;
   color: #09554e;
-} */
+}
 
 .hide {
   display: none;
 }
 
-/* .close-btn {
+.close-btn {
   font-size: 40px;
   cursor: pointer;
   display: flex;
   align-self: end;
-} */
+}
+
 .popup-img {
   width: 50%;
 }
+
 .popup-img-container {
   display: flex;
   justify-content: center;
@@ -219,6 +213,7 @@ html {
   align-items: center;
   text-align: center;
 }
+
 #popup-name {
   height: 35px;
   border: 2px solid #09554e;
@@ -242,15 +237,25 @@ html {
   border-radius: 10px;
 }
 
+.comments-button:hover,
+.popup-btn:hover {
+  background-color: #fff;
+  color: #09554e;
+  border: 2px solid #09554e;
+  font-weight: 600;
+}
+
 @media screen and (max-width: 1000px) {
   .movie-name,
   .likesCount {
     font-size: 20px;
   }
+
   .movie-title {
     padding: 0 30px;
   }
 }
+
 @media screen and (min-width: 700px) {
   .card:hover {
     transform: scale(1.02);
@@ -258,13 +263,15 @@ html {
   }
 }
 
-/* @media screen and (max-width: 700px) {
+@media screen and (max-width: 700px) {
   .nav-header {
     padding: 0 7%;
   }
+
   .nav-title p {
     display: none;
   }
+
   .nav-list {
     gap: 5px;
   }
@@ -277,4 +284,4 @@ html {
     width: 90%;
     padding: 10px;
   }
-} */
+}
