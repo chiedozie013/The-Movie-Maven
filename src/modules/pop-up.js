@@ -54,14 +54,14 @@ const popUp = async () => {
   });
 };
 
-// const closeBtn = () => {
-//   document.addEventListener("click", (e) => {
-//     const target = e.target.closest(".close-btn");
-//     const section = e.target.parentElement.parentElement;
-//     if (!target) return;
-//     section.classList.add("hide");
-//   });
-// };
+const closeBtn = () => {
+  document.addEventListener("click", (e) => {
+    const target = e.target.closest(".close-btn");
+    const section = e.target.parentElement.parentElement;
+    if (!target) return;
+    section.classList.add("hide");
+  });
+};
 
 const displayComment = (comment) => {
   const commentContainer = document.querySelector(".comments-list");
