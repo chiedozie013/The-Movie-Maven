@@ -1,4 +1,5 @@
 import './style.css';
+
 import header from './modules/header.js';
 import { getMovies } from './modules/movies.js';
 import { movieCounter } from './modules/movieCounter.js';
