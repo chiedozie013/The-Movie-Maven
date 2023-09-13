@@ -1,7 +1,7 @@
-import logo from "../assets/logo.png";
+import logo from '../assets/logo.png';
 
 const header = () => {
-  const nav = document.querySelector(".nav-header");
+  const nav = document.querySelector('.nav-header');
   nav.innerHTML = `
     <div class="nav-bar">
     <div class="nav-title">
