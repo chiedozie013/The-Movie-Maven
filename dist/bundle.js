@@ -41,6 +41,11 @@ body {
 html {
   scroll-behavior: smooth;
 }
+.nav-header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
 .nav-header,
 .footer {
   background-color: #09554e;
@@ -69,28 +74,10 @@ html {
   color: #fff;
   font-size: 20px;
 }
-.movie-name {
-  color: #000000;
+.nav-list a:hover {
+  color: #75c2ba;
 }
-.movie-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px;
-  padding: 0 32px;
-}
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  border: 1px solid;
-  border-radius: 10px;
-  min-height: 100px;
-  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.8);
-}
-.movie-name {
-  font-size: 20px;
-}
-`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAEA;;;EAGE,SAAS;EACT,UAAU;EACV,gBAAgB;EAChB,sBAAsB;EACtB,qBAAqB;AACvB;;AAEA;EACE,iCAAiC;EACjC,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,uBAAuB;AACzB;AACA;;EAEE,yBAAyB;EACzB,cAAc;EACd,kBAAkB;AACpB;AACA;;;EAGE,aAAa;EACb,SAAS;EACT,mBAAmB;EACnB,eAAe;EACf,WAAW;AACb;AACA;EACE,WAAW;;EAEX,iBAAiB;AACnB;;AAEA;EACE,8BAA8B;AAChC;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,cAAc;AAChB;AACA;EACE,aAAa;EACb,kCAAkC;EAClC,SAAS;EACT,eAAe;AACjB;AACA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;EACT,iBAAiB;EACjB,mBAAmB;EACnB,iBAAiB;EACjB,8CAA8C;AAChD;AACA;EACE,eAAe;AACjB","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Crete+Round&family=Open+Sans:ital,wght@0,500;1,500&display=swap\");\r\n\r\n*,\r\n*::before,\r\n*::after {\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  box-sizing: border-box;\r\n  text-decoration: none;\r\n}\r\n\r\nbody {\r\n  font-family: \"Crete Round\", serif;\r\n  font-weight: 600;\r\n  color: #ffffff;\r\n}\r\n\r\nhtml {\r\n  scroll-behavior: smooth;\r\n}\r\n.nav-header,\r\n.footer {\r\n  background-color: #09554e;\r\n  padding: 0 10%;\r\n  text-align: center;\r\n}\r\n.nav-list,\r\n.nav-title,\r\n.nav-bar {\r\n  display: flex;\r\n  gap: 20px;\r\n  align-items: center;\r\n  font-size: 24px;\r\n  color: #fff;\r\n}\r\n#logo {\r\n  width: 50px;\r\n\r\n  padding-top: 10px;\r\n}\r\n\r\n.nav-bar {\r\n  justify-content: space-between;\r\n}\r\n.nav-list a {\r\n  color: #fff;\r\n  font-size: 20px;\r\n}\r\n.movie-name {\r\n  color: #000000;\r\n}\r\n.movie-container {\r\n  display: grid;\r\n  grid-template-columns: 1fr 1fr 1fr;\r\n  gap: 30px;\r\n  padding: 0 32px;\r\n}\r\n.card {\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 20px;\r\n  border: 1px solid;\r\n  border-radius: 10px;\r\n  min-height: 100px;\r\n  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.8);\r\n}\r\n.movie-name {\r\n  font-size: 20px;\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAEA;;;EAGE,SAAS;EACT,UAAU;EACV,gBAAgB;EAChB,sBAAsB;EACtB,qBAAqB;AACvB;;AAEA;EACE,iCAAiC;EACjC,gBAAgB;EAChB,cAAc;AAChB;;AAEA;EACE,uBAAuB;AACzB;AACA;EACE,eAAe;EACf,WAAW;EACX,UAAU;AACZ;AACA;;EAEE,yBAAyB;EACzB,cAAc;EACd,kBAAkB;AACpB;AACA;;;EAGE,aAAa;EACb,SAAS;EACT,mBAAmB;EACnB,eAAe;EACf,WAAW;AACb;AACA;EACE,WAAW;;EAEX,iBAAiB;AACnB;;AAEA;EACE,8BAA8B;AAChC;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,cAAc;AAChB","sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Crete+Round&family=Open+Sans:ital,wght@0,500;1,500&display=swap\");\r\n\r\n*,\r\n*::before,\r\n*::after {\r\n  margin: 0;\r\n  padding: 0;\r\n  list-style: none;\r\n  box-sizing: border-box;\r\n  text-decoration: none;\r\n}\r\n\r\nbody {\r\n  font-family: \"Crete Round\", serif;\r\n  font-weight: 600;\r\n  color: #ffffff;\r\n}\r\n\r\nhtml {\r\n  scroll-behavior: smooth;\r\n}\r\n.nav-header {\r\n  position: fixed;\r\n  width: 100%;\r\n  z-index: 1;\r\n}\r\n.nav-header,\r\n.footer {\r\n  background-color: #09554e;\r\n  padding: 0 10%;\r\n  text-align: center;\r\n}\r\n.nav-list,\r\n.nav-title,\r\n.nav-bar {\r\n  display: flex;\r\n  gap: 20px;\r\n  align-items: center;\r\n  font-size: 24px;\r\n  color: #fff;\r\n}\r\n#logo {\r\n  width: 50px;\r\n\r\n  padding-top: 10px;\r\n}\r\n\r\n.nav-bar {\r\n  justify-content: space-between;\r\n}\r\n.nav-list a {\r\n  color: #fff;\r\n  font-size: 20px;\r\n}\r\n.nav-list a:hover {\r\n  color: #75c2ba;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -574,144 +561,6 @@ const header = () => {
 
 /***/ }),
 
-/***/ "./src/modules/involvement.js":
-/*!************************************!*\
-  !*** ./src/modules/involvement.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getLikesCount: () => (/* binding */ getLikesCount),
-/* harmony export */   postLikes: () => (/* binding */ postLikes)
-/* harmony export */ });
-/* eslint-disable no-unused-vars */
-const likesApi =
-  "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BHkrUTs0Q4TVtczjuly5/likes";
-
-const postLikes = async (id) => {
-  const test = { item_id: id };
-  const response = await fetch(likesApi, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(test),
-  });
-  return response;
-};
-
-const getLikesCount = async () => {
-  const likes = await fetch(likesApi);
-  const response = await likes.json();
-  return response;
-};
-
-
-
-
-/***/ }),
-
-/***/ "./src/modules/movieCounter.js":
-/*!*************************************!*\
-  !*** ./src/modules/movieCounter.js ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   movieCounter: () => (/* binding */ movieCounter)
-/* harmony export */ });
-const movieCounter = (count) => {
-  const counter = document.getElementById("counter");
-  count = document.querySelectorAll(".card").length;
-
-  if (count === 0) count = "No movies";
-  if (count > 999) count = "999+";
-
-  counter.innerText = count;
-  return count;
-};
-
-/* eslint-disable import/prefer-default-export */
-
-
-
-/***/ }),
-
-/***/ "./src/modules/movies.js":
-/*!*******************************!*\
-  !*** ./src/modules/movies.js ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getMovies: () => (/* binding */ getMovies)
-/* harmony export */ });
-/* harmony import */ var _involvement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./involvement.js */ "./src/modules/involvement.js");
-
-
-const movies = "https://api.tvmaze.com/shows";
-
-const getMovies = async (test) => {
-  try {
-    const result = await fetch(movies);
-    let output = "";
-    const data = await result.json();
-    data.forEach((movie) => {
-      const newMovie = `<div class="card" item_id="${movie.id}">
-                <img src=${movie.image.medium}>
-                <h2 class="movie-name">${movie.name}<button class="like"><i class="fa fa-heart-o" id=${movie.id}></button></i><span class="likesCount" id="likesCount-${movie.id}"></span></h2>
-                <div class="card-buttons">
-                <button class="comments-button" id=${movie.id}>Comment</button>
-                </div>
-            </div>
-            `;
-      output += newMovie;
-    });
-
-    const displayMovies = document.querySelector(".movie-container");
-    displayMovies.innerHTML = output;
-    // passed in test above in order to be able to get length of all movies available
-    test(data.length);
-
-    // update likes counter and display on DOM
-    const updateLikesCount = async () => {
-      const likesData = await (0,_involvement_js__WEBPACK_IMPORTED_MODULE_0__.getLikesCount)();
-      likesData.forEach((item) => {
-        const likesCount = [`${item.likes}`];
-        const likesCountElement = document.getElementById(
-          `likesCount-${item.item_id}`
-        );
-        if (likesCountElement) likesCountElement.innerText = likesCount || "0";
-      });
-    };
-
-    updateLikesCount();
-
-    // like button functionality
-    const likeBtn = document.querySelectorAll(".like");
-    likeBtn.forEach((button) => {
-      button.addEventListener("click", async (item) => {
-        const { id } = item.target; // get the ID of the clicked element
-        (0,_involvement_js__WEBPACK_IMPORTED_MODULE_0__.postLikes)(id); // pass the ID to postLikes
-        item.preventDefault();
-      });
-      updateLikesCount();
-    });
-  } catch (error) {
-    const displayMovies = document.querySelector(".movie-container");
-    displayMovies.innerText = error;
-  }
-};
-
-/* eslint-disable import/prefer-default-export */
-
-
-
-/***/ }),
-
 /***/ "./src/assets/logo.png":
 /*!*****************************!*\
   !*** ./src/assets/logo.png ***!
@@ -839,17 +688,10 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
 /* harmony import */ var _modules_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/header */ "./src/modules/header.js");
-/* harmony import */ var _modules_movies_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/movies.js */ "./src/modules/movies.js");
-/* harmony import */ var _modules_movieCounter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/movieCounter.js */ "./src/modules/movieCounter.js");
-/* harmony import */ var _modules_involvement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/involvement.js */ "./src/modules/involvement.js");
-
-
-
 
 
 
 (0,_modules_header__WEBPACK_IMPORTED_MODULE_1__["default"])();
-(0,_modules_movies_js__WEBPACK_IMPORTED_MODULE_2__.getMovies)(_modules_movieCounter_js__WEBPACK_IMPORTED_MODULE_3__.movieCounter, _modules_involvement_js__WEBPACK_IMPORTED_MODULE_4__.postLikes, _modules_involvement_js__WEBPACK_IMPORTED_MODULE_4__.getLikesCount);
 
 })();
 
