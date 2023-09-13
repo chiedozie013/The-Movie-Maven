@@ -1248,6 +1248,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 (0,_modules_header_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 (0,_modules_movies_js__WEBPACK_IMPORTED_MODULE_2__.getMovies)(_modules_movieCounter_js__WEBPACK_IMPORTED_MODULE_3__.movieCounter, _modules_involvement_js__WEBPACK_IMPORTED_MODULE_4__.postLikes, _modules_involvement_js__WEBPACK_IMPORTED_MODULE_4__.getLikesCount);
 (0,_modules_pop_up_js__WEBPACK_IMPORTED_MODULE_5__.popUp)();
