@@ -7,6 +7,7 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
+  - [ Walkthrough](#walkthrough-using-zoom)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -48,6 +49,12 @@ This is a Javascript project for using APIs to fetch data and receive data from 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [https://chiedozie013.github.io/](https://github.com/chiedozie013/The-Movie-Maven/dist)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Walkthrough Using Zoom
+
+- [Walktrough Video](https://drive.google.com/file/d/1d6-3VXtMF8AyMfYlTO30esRy4_HFa59N/view?usp=drive_link)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
