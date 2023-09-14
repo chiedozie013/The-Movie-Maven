@@ -24,8 +24,8 @@
 
 # 📖 [The-Movie-Mavin] <a name="about-project"></a>
 
-**[Javascript-Capstone-Project]**
-This is a project for using APIs to fetch data and receive data from an API. In this project, webpack and kanban board were used
+**[The-Movie-Maven]**
+This is a Javascript project for using APIs to fetch data and receive data from a Movie Base API. In this project, webpack and kanban board were used
 
 ## 🛠 Built With <a name="HTML, CSS and JS"></a>
 
@@ -46,7 +46,7 @@ This is a project for using APIs to fetch data and receive data from an API. In 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [https://chiedozie013.github.io/](https://chiedozie013.github.io/JavaScript-Capstone-Project/dist)
+- [https://chiedozie013.github.io/](https://github.com/chiedozie013/The-Movie-Maven/dist)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -66,7 +66,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder,
-  git clone https://github.com/chiedozie013/JavaScript-Capstone-Project,
+  git clone https://github.com/chiedozie013/The-Movie-Maven,
   npm install
   npm run start
 ```
@@ -105,7 +105,7 @@ Install this project with:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/chiedozie013/JavaScript-Capstone-Project/issues).
+Feel free to check the [issues page](https://github.com/chiedozie013/The-Movie-Maven/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -124,6 +124,6 @@ I would also like to acknowledge the product designer of this project. Cindy Shi
 
 # 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/chiedozie013/JavaScript-Capstone-Project/blob/development/LICENSE) licensed.
+This project is [MIT](https://github.com/chiedozie013/The-Movie-Maven/blob/development/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
