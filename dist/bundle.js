@@ -862,19 +862,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getLikesCount: () => (/* binding */ getLikesCount),
 /* harmony export */   postLikes: () => (/* binding */ postLikes)
 /* harmony export */ });
-/* eslint-disable no-unused-vars */
-const likesApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BHkrUTs0Q4TVtczjuly5/likes';
+const likesApi =
+  "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BHkrUTs0Q4TVtczjuly5/likes";
 
 const postLikes = async (id) => {
   const test = { item_id: id };
-  const response = await fetch(likesApi, {
-    method: 'POST',
+  await fetch(likesApi, {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(test),
   });
-  return response;
+  await fetch(likesApi, test).then((res) => res.text());
 };
 
 const getLikesCount = async () => {
@@ -896,21 +896,16 @@ const getLikesCount = async () => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   movieCounter: () => (/* binding */ movieCounter)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-const movieCounter = (count) => {
-  const counter = document.getElementById('counter');
-  count = document.querySelectorAll('.card').length;
-
-  if (count === 0) count = 'No movies';
-  if (count > 999) count = '999+';
-
-  counter.innerText = count;
-  return count;
+const movieCounters = () => {
+  const movies = document.querySelectorAll(".card");
+  const counter = document.getElementById("counter");
+  counter.innerText = movies.length;
+  return movies.length;
 };
 
-/* eslint-disable import/prefer-default-export */
-
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (movieCounters);
 
 
 /***/ }),
@@ -923,40 +918,45 @@ const movieCounter = (count) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getMovies: () => (/* binding */ getMovies)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   movies: () => (/* binding */ movies)
 /* harmony export */ });
 /* harmony import */ var _involvement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./involvement.js */ "./src/modules/involvement.js");
+/* harmony import */ var _movieCounter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./movieCounter.js */ "./src/modules/movieCounter.js");
 
 
-const movies = 'https://api.tvmaze.com/shows';
 
-const getMovies = async (test) => {
+const movies = "https://api.tvmaze.com/shows";
+
+const getMovies = async () => {
   try {
     const result = await fetch(movies);
-    let output = '';
+    let output = "";
     const data = await result.json();
     data.forEach((movie) => {
       const newMovie = `<div class="card" item_id="${movie.id}">
-                <img src=${movie.image.medium}>
-                <div class="movie-title">
-                <h2 class="movie-name">${movie.name}</h2>                
-                <div class="like-btn">
-                <button class="like"><i class="fa fa-heart-o likes" id=${movie.id}></i></button>
-                <h2 class="likesCount" id="likesCount-${movie.id}"></h2>
-                </div>
-                </div>
-                <div class="card-buttons">
-                <button class="comments-button" id=${movie.id}>Comment</button>
-                </div>
+      <img src=${movie.image.medium}>
+      <div class="movie-title">
+      <h2 class="movie-name">${movie.name}</h2>
+      <div class="like-btn">
+      <button class="like"><i class="fa fa-heart-o likes" id=${movie.id}></i></button>
+      <h2 class="likesCount" id="likesCount-${movie.id}"></h2>
+      </div>
+      </div>
+      <div class="card-buttons">
+      <button class="comments-button" id=${movie.id}>Comment</button>
+      </div>
             </div>
             `;
       output += newMovie;
     });
 
-    const displayMovies = document.querySelector('.movie-container');
+    const displayMovies = document.querySelector(".movie-container");
     displayMovies.innerHTML = output;
+
+    (0,_movieCounter_js__WEBPACK_IMPORTED_MODULE_1__["default"])(data);
     // passed in test above in order to be able to get length of all movies available
-    test(data.length);
+    // test(data.length);
 
     // update likes counter and display on DOM
     const updateLikesCount = async () => {
@@ -964,18 +964,18 @@ const getMovies = async (test) => {
       likesData.forEach((item) => {
         const likesCount = [`${item.likes}`];
         const likesCountElement = document.getElementById(
-          `likesCount-${item.item_id}`,
+          `likesCount-${item.item_id}`
         );
-        if (likesCountElement) likesCountElement.innerText = likesCount || '0';
+        if (likesCountElement) likesCountElement.innerText = likesCount || "0";
       });
     };
 
     updateLikesCount();
 
     // like button functionality
-    const likeBtn = document.querySelectorAll('.like');
+    const likeBtn = document.querySelectorAll(".like");
     likeBtn.forEach((button) => {
-      button.addEventListener('click', async (item) => {
+      button.addEventListener("click", async (item) => {
         const { id } = item.target; // get the ID of the clicked element
         (0,_involvement_js__WEBPACK_IMPORTED_MODULE_0__.postLikes)(id); // pass the ID to postLikes
         item.preventDefault();
@@ -983,13 +983,12 @@ const getMovies = async (test) => {
       updateLikesCount();
     });
   } catch (error) {
-    const displayMovies = document.querySelector('.movie-container');
+    const displayMovies = document.querySelector(".movie-container");
     displayMovies.innerText = error;
   }
 };
 
-/* eslint-disable import/prefer-default-export */
-
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getMovies);
 
 
 /***/ }),
@@ -1011,17 +1010,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const movies = "https://api.tvmaze.com/shows";
-const popUpSection = document.querySelector(".popup-section");
+const movies = 'https://api.tvmaze.com/shows';
+const popUpSection = document.querySelector('.popup-section');
 
 const popUp = async () => {
   const res = await fetch(movies);
   const data = await res.json();
 
-  const commentBtn = document.querySelectorAll(".comments-button");
+  const commentBtn = document.querySelectorAll('.comments-button');
 
   commentBtn.forEach((btn, i) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener('click', () => {
       popUpSection.innerHTML = `
   <div class="overlay">
     <div class="popup-container" id = ${data[i].id}>
@@ -1064,31 +1063,30 @@ const popUp = async () => {
 };
 
 const closeBtn = () => {
-  document.addEventListener("click", (e) => {
-    const target = e.target.closest(".close-btn");
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('.close-btn');
     const section = e.target.parentElement.parentElement;
     if (!target) return;
-    section.classList.add("hide");
+    section.classList.add('hide');
   });
 };
 
 const displayComment = (comment) => {
-  const commentContainer = document.querySelector(".comments-list");
+  const commentContainer = document.querySelector('.comments-list');
   if (!comment.error) {
     commentContainer.innerHTML = comment.map(
-      (item) =>
-        `<li> ${item.creation_date}: ${item.username}: ${item.comment} </li>`
+      (item) => `<li> ${item.creation_date}: ${item.username}: ${item.comment} </li>`,
     );
   }
-  const allComments = document.querySelectorAll(".comments-list li");
-  const commentCount = document.querySelector(".comment-count");
+  const allComments = document.querySelectorAll('.comments-list li');
+  const commentCount = document.querySelector('.comment-count');
   commentCount.innerHTML = (0,_counter_js__WEBPACK_IMPORTED_MODULE_1__["default"])(allComments);
 };
 
 const submitComment = () => {
-  document.addEventListener("submit", async (e) => {
+  document.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const target = e.target.closest(".form");
+    const target = e.target.closest('.form');
     const targetId = Number(e.target.parentElement.id);
     if (!target) return;
     await (0,_commentInvolvement_js__WEBPACK_IMPORTED_MODULE_0__.postComments)(targetId);
@@ -1098,9 +1096,9 @@ const submitComment = () => {
   });
 };
 
-const cardContainer = document.querySelector(".movie-container");
-cardContainer.addEventListener("click", async (e) => {
-  if (e.target.className === "comments-button") {
+const cardContainer = document.querySelector('.movie-container');
+cardContainer.addEventListener('click', async (e) => {
+  if (e.target.className === 'comments-button') {
     const comment = await (0,_commentInvolvement_js__WEBPACK_IMPORTED_MODULE_0__.getComments)(Number(e.target.id));
     displayComment(comment);
   }
@@ -1237,10 +1235,10 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
-/* harmony import */ var _modules_header_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/header.js */ "./src/modules/header.js");
-/* harmony import */ var _modules_movies_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/movies.js */ "./src/modules/movies.js");
-/* harmony import */ var _modules_movieCounter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/movieCounter.js */ "./src/modules/movieCounter.js");
-/* harmony import */ var _modules_involvement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/involvement.js */ "./src/modules/involvement.js");
+/* harmony import */ var _modules_movies_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/movies.js */ "./src/modules/movies.js");
+/* harmony import */ var _modules_movieCounter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/movieCounter.js */ "./src/modules/movieCounter.js");
+/* harmony import */ var _modules_involvement_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/involvement.js */ "./src/modules/involvement.js");
+/* harmony import */ var _modules_header_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/header.js */ "./src/modules/header.js");
 /* harmony import */ var _modules_pop_up_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/pop-up.js */ "./src/modules/pop-up.js");
 
 
@@ -1249,9 +1247,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-(0,_modules_header_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
-(0,_modules_movies_js__WEBPACK_IMPORTED_MODULE_2__.getMovies)(_modules_movieCounter_js__WEBPACK_IMPORTED_MODULE_3__.movieCounter, _modules_involvement_js__WEBPACK_IMPORTED_MODULE_4__.postLikes, _modules_involvement_js__WEBPACK_IMPORTED_MODULE_4__.getLikesCount);
+(0,_modules_header_js__WEBPACK_IMPORTED_MODULE_4__["default"])();
+(0,_modules_movies_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_modules_movieCounter_js__WEBPACK_IMPORTED_MODULE_2__["default"], _modules_involvement_js__WEBPACK_IMPORTED_MODULE_3__.postLikes, _modules_involvement_js__WEBPACK_IMPORTED_MODULE_3__.getLikesCount);
 (0,_modules_pop_up_js__WEBPACK_IMPORTED_MODULE_5__.popUp)();
 (0,_modules_pop_up_js__WEBPACK_IMPORTED_MODULE_5__.closeBtn)();
 (0,_modules_pop_up_js__WEBPACK_IMPORTED_MODULE_5__.submitComment)();

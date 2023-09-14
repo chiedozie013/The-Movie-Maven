@@ -48,7 +48,7 @@ This is a Javascript project for using APIs to fetch data and receive data from 
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [https://chiedozie013.github.io/](https://github.com/chiedozie013/The-Movie-Maven/dist)
+- [https://chiedozie013.github.io/](https://chiedozie013.github.io/The-Movie-Maven/dist)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

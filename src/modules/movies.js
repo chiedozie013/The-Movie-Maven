@@ -1,25 +1,26 @@
 import { postLikes, getLikesCount } from './involvement.js';
+import movieCounters from './movieCounter.js';
 
-const movies = 'https://api.tvmaze.com/shows';
+export const movies = 'https://api.tvmaze.com/shows';
 
-const getMovies = async (test) => {
+const getMovies = async () => {
   try {
     const result = await fetch(movies);
     let output = '';
     const data = await result.json();
     data.forEach((movie) => {
       const newMovie = `<div class="card" item_id="${movie.id}">
-                <img src=${movie.image.medium}>
-                <div class="movie-title">
-                <h2 class="movie-name">${movie.name}</h2>                
-                <div class="like-btn">
-                <button class="like"><i class="fa fa-heart-o likes" id=${movie.id}></i></button>
-                <h2 class="likesCount" id="likesCount-${movie.id}"></h2>
-                </div>
-                </div>
-                <div class="card-buttons">
-                <button class="comments-button" id=${movie.id}>Comment</button>
-                </div>
+      <img src=${movie.image.medium}>
+      <div class="movie-title">
+      <h2 class="movie-name">${movie.name}</h2>
+      <div class="like-btn">
+      <button class="like"><i class="fa fa-heart-o likes" id=${movie.id}></i></button>
+      <h2 class="likesCount" id="likesCount-${movie.id}"></h2>
+      </div>
+      </div>
+      <div class="card-buttons">
+      <button class="comments-button" id=${movie.id}>Comment</button>
+      </div>
             </div>
             `;
       output += newMovie;
@@ -27,8 +28,10 @@ const getMovies = async (test) => {
 
     const displayMovies = document.querySelector('.movie-container');
     displayMovies.innerHTML = output;
+
+    movieCounters(data);
     // passed in test above in order to be able to get length of all movies available
-    test(data.length);
+    // test(data.length);
 
     // update likes counter and display on DOM
     const updateLikesCount = async () => {
@@ -60,5 +63,4 @@ const getMovies = async (test) => {
   }
 };
 
-/* eslint-disable import/prefer-default-export */
-export { getMovies };
+export default getMovies;
