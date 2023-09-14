@@ -1,5 +1,6 @@
 import './style.css';
-import header from './modules/header';
+
+import header from './modules/header.js';
 import { getMovies } from './modules/movies.js';
 import { movieCounter } from './modules/movieCounter.js';
 import { postLikes, getLikesCount } from './modules/involvement.js';

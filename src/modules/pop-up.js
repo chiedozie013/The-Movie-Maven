@@ -1,4 +1,3 @@
-// import { movies } from "./movies.js";
 import { postComments, getComments } from './commentInvolvement.js';
 import counter from './counter.js';
 
