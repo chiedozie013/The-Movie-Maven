@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Crete+Round&family=Open+Sans:ital,wght@0,500;1,500&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Crete Round", serif;
+  font-weight: 600;
+  color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.nav-header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.nav-header,
+.footer {
+  background-color: #09554e;
+  padding: 0 10%;
+  text-align: center;
+}
+
+.nav-list,
+.nav-title,
+.nav-bar {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 24px;
+  color: #fff;
+}
+
+#logo {
+  width: 50px;
+  padding-top: 10px;
+}
+
+.nav-bar {
+  justify-content: space-between;
+}
+
+.nav-list a {
+  color: #fff;
+  font-size: 20px;
+}
+
+.nav-list a:hover {
+  color: #75c2ba;
+}
+
+.movie-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 32px;
+  padding-top: 100px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid;
+  border-radius: 10px;
+  min-height: 100px;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s ease;
+}
+
+.movie-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.movie-name {
+  font-size: 20px;
+  justify-content: flex-start;
+  color: #000;
+}
+
+.like-btn {
+  display: flex;
+  gap: 10px;
+}
+
+.likesCount {
+  color: #000;
+  font-size: 20px;
+}
+
+.like {
+  font-size: 20px;
+  background-color: #fff;
+  border: none;
+  font-weight: 800;
+  color: #09554e;
+  cursor: pointer;
+}
+
+.like:active {
+  color: red;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.comments-button {
+  padding: 10px 45px;
+  border-radius: 10px;
+  background-color: #09554e;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+}
+
+.footer {
+  padding: 10px 0;
+}
+
+/* for pop up */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.popup-container {
+  position: absolute;
+  top: 0;
+  margin: 30px;
+  padding: 20px 30px 20px;
+  z-index: 10;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafefe;
+  color: #09554e;
+}
+
+.hide {
+  display: none;
+}
+
+.close-btn {
+  font-size: 40px;
+  cursor: pointer;
+  display: flex;
+  align-self: end;
+}
+
+.popup-img {
+  width: 50%;
+}
+
+.popup-img-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  gap: 10px;
+}
+
+.popup-title {
+  text-align: center;
+  padding: 10px;
+}
+
+.popup-info {
+  padding: 10px;
+  text-align: center;
+}
+
+.popup-description {
+  padding: 10px;
+  text-align: justify;
+}
+
+.popup-comments {
+  border: 2px solid #09554e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#popup-name {
+  height: 35px;
+  border: 2px solid #09554e;
+  padding: 0 20px;
+  font-weight: 800;
+}
+
+#popup-insight {
+  height: 140px;
+  border: 2px solid #09554e;
+  padding: 10px 20px;
+  font-weight: 800;
+}
+
+.popup-btn {
+  cursor: pointer;
+  height: 40px;
+  font-size: 20px;
+  background-color: #09554e;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.comments-button:hover,
+.popup-btn:hover {
+  background-color: #fff;
+  color: #09554e;
+  border: 2px solid #09554e;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1000px) {
+  .movie-name,
+  .likesCount {
+    font-size: 20px;
+  }
+
+  .movie-title {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .card:hover {
+    transform: scale(1.02);
+    z-index: 9999;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .nav-header {
+    padding: 0 7%;
+  }
+
+  .nav-title p {
+    display: none;
+  }
+
+  .nav-list {
+    gap: 5px;
+  }
+
+  .movie-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .popup-container {
+    width: 90%;
+    padding: 10px;
+  }
+}
