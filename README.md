@@ -54,7 +54,7 @@ This is a Javascript project for using APIs to fetch data and receive data from 
 
 ## Walkthrough Using Zoom
 
-- [Walktrough Video](https://drive.google.com/file/d/1d6-3VXtMF8AyMfYlTO30esRy4_HFa59N/view?usp=drive_link)
+- [Walktrough Video](https://drive.google.com/file/d/15wqLfihhLoXoIydJwkb8IZpTZ7zwT8DF/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
