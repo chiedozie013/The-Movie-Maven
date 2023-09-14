@@ -44,6 +44,7 @@ This is a Javascript project for using APIs to fetch data and receive data from 
 - **[Popup page that shows details of selected items and also comments on the item]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [https://chiedozie013.github.io/](https://github.com/chiedozie013/The-Movie-Maven/dist)
