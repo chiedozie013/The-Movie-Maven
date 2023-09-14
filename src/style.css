@@ -110,6 +110,9 @@ html {
   color: #09554e;
   cursor: pointer;
 }
+.like:active {
+  color: red;
+}
 
 .card-buttons {
   display: flex;

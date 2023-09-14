@@ -1,15 +1,16 @@
-const likesApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BHkrUTs0Q4TVtczjuly5/likes';
+const likesApi =
+  "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/BHkrUTs0Q4TVtczjuly5/likes";
 
 const postLikes = async (id) => {
   const test = { item_id: id };
   await fetch(likesApi, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(test),
   });
-  await fetch(likesApi, test).then((res) => res.text());
+  // await fetch(likesApi, test).then((res) => res.text());
 };
 
 const getLikesCount = async () => {
